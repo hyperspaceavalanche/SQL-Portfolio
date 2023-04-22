@@ -1,0 +1,52 @@
+CREATE TABLE Clothing (ID INTEGER PRIMARY KEY, Name TEXT, Price INTEGER, Color TEXT, Quantity INTEGER);
+
+INSERT INTO Clothing VALUES (1, "Socks", 9, "Green", 37);
+INSERT INTO Clothing VALUES (2, "Running Shoes", 82, "Blue", 6);
+INSERT INTO Clothing VALUES (3, "T-Shirts", 12, "Purple", 8);
+INSERT INTO Clothing VALUES (4, "Jeans", 20, "Blue", 45);
+INSERT INTO Clothing VALUES (5, "Gym Shorts", 20, "Black", 32);
+INSERT INTO Clothing VALUES (6, "Sweatpants", 15, "Gray", 55);
+INSERT INTO Clothing VALUES (7, "Sweatshirts", 25, "Green", 45);
+INSERT INTO Clothing VALUES (8, "Jackets", 40, "Gray", 27);
+INSERT INTO Clothing VALUES (9, "Polo Shirts", 15, "White", 21);
+INSERT INTO Clothing VALUES (10, "Sweaters", 25, "Blue", 20);
+INSERT INTO Clothing VALUES (11, "Vests", 20, "Gray", 5);
+INSERT INTO Clothing VALUES (12, "Boots", 100, "Brown", 3);
+INSERT INTO Clothing VALUES (13, "Swimsuits", 13, "Orange", 1);
+INSERT INTO Clothing VALUES (14, "Dresses", 45, "Red", 55);
+INSERT INTO Clothing VALUES (15, "Suits", 250, "Black", 2);
+
+
+
+--What is the total quantity of items for each color in the Clothing table?
+
+SELECT Color, SUM(Quantity) AS Total_Quantity
+FROM Clothing
+GROUP BY Color;
+
+--Sort the items in the table by their price in descending order.
+
+SELECT *
+FROM Clothing
+ORDER BY Price DESC;
+
+
+--What is the average price of clothing for each color in the Clothing table?
+
+SELECT Color, AVG(Price) AS Average_Price
+FROM Clothing
+GROUP BY Color;
+
+
+--Which items cost more than $30?
+
+SELECT *
+FROM Clothing
+WHERE Price > 30;
+
+
+--Which items cost less than $30 and are green?
+
+SELECT *
+FROM Clothing
+WHERE Price < 30 AND (Color = 'Green');
